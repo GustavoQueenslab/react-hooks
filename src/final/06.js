@@ -11,12 +11,14 @@ import {
 
 function PokemonInfo({pokemonName}) {
   const [pokemon, setPokemon] = React.useState(null)
+  const [error, setError] = React.useState(null)
 
   React.useEffect(() => {
     if (!pokemonName) {
       return
     }
     setPokemon(null)
+    setError(null)
     fetchPokemon(pokemonName).then(pokemon => setPokemon(pokemon))
   }, [pokemonName])
 
